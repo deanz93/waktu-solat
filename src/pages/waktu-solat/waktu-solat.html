@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Waktu Solat</ion-title>
+  </ion-navbar>
+  <ion-list>
+    <ion-item>
+      <ion-label>Negeri</ion-label>
+      <ion-select [(ngModel)]="form.negeri" (ngModelChange)="getdaerah($event)">
+        <ion-option value="Perlis">Perlis</ion-option>
+        <ion-option value="Kedah">Kedah</ion-option>
+        <ion-option value="Penang">Pulau Pinang</ion-option>
+        <ion-option value="Perak">Perak</ion-option>
+        <ion-option value="Selangor">Selangor</ion-option>
+        <ion-option value="Kuala lumpur">Kuala Lumpur</ion-option>
+        <ion-option value="Melaka">Melaka</ion-option>
+        <ion-option value="Negeri Sembilan">Negeri Sembilan</ion-option>
+        <ion-option value="Johor">Johor</ion-option>
+        <ion-option value="Kelantan">Kelantan</ion-option>
+        <ion-option value="Pahang">Pahang</ion-option>
+        <ion-option value="Terengganu">Terengganu</ion-option>
+        <ion-option value="Sabah">Sabah</ion-option>
+        <ion-option value="Sarawak">Sarawak</ion-option>
+        <ion-option value="Labuan">Labuan</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <ion-list *ngIf="form.negeri !== undefined">
+    <ion-item>
+      <ion-label>{{ form.negeri }}</ion-label>
+      <ion-select [(ngModel)]="form.daerah"  (ngModelChange)="getwaktu($event)">
+        <ion-option *ngFor="let daerah of selectedstate.results" [value]="daerah.zone">{{ daerah.lokasi }}</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+</ion-header>
+
+<ion-content>
+    <ion-list *ngFor="let masa of waktusolat">
+      <ion-list-header>
+      </ion-list-header>
+      <ion-list-header class="text">
+        {{masa.start}}
+      </ion-list-header>
+    <ion-item item-start>Syuruk <div item-end>{{masa.prayer_times.syuruk}}</div></ion-item>
+    <ion-item item-start>Subuh <div item-end>{{masa.prayer_times.subuh}}</div></ion-item>
+    <ion-item item-start>Zohor <div item-end>{{masa.prayer_times.zohor}}</div></ion-item>
+    <ion-item item-start>Asar <div item-end>{{masa.prayer_times.asar}}</div></ion-item>
+    <ion-item item-start>Maghrib <div item-end>{{masa.prayer_times.maghrib}}</div></ion-item>
+    <ion-item item-start>Isyak <div item-end>{{masa.prayer_times.isyak}}</div></ion-item>
+  </ion-list>
+</ion-content>
+
+<style>
+.social-cards ion-col {
+  padding: 0;
+}
+</style>

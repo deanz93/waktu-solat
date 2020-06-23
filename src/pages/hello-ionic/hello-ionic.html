@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="cards-bg social-cards">
+
+  <ion-card>
+    <ion-item *ngFor="let weatherItem of weatherItems">
+      <ion-icon item-start name="cloud"></ion-icon>
+      <h2>{{weatherItem.name}}</h2>
+      <p>{{ today | date: 'medium' }}</p>
+    </ion-item>
+
+    <img src="assets/weather condition/weather_BG/na.jpg">
+
+    <ion-card-content *ngFor="let weatherItem of weatherItems">
+      <p>{{weatherItem.weather[0].description | uppercase}}</p>
+    </ion-card-content>
+
+  </ion-card>
+
+  <ion-card>
+    <div id="map_canvas">
+    </div>
+
+  </ion-card>
+
+</ion-content>
+
+<style>
+.social-cards ion-col {
+  padding: 0;
+}
+</style>

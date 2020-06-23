@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>News</ion-title>
+  </ion-navbar>
+  <ion-toolbar color="primary">
+    <ion-searchbar (input)="getItems($event)"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="cards-bg social-cards">
+
+  <ion-card *ngFor="let new of news.articles">
+    <ion-item>
+      <h2>{{new.title}}</h2>
+      <p>By {{new.author}}</p>
+    </ion-item>
+    <img [src]="new.urlToImage">
+    <ion-card-content>
+    <p>{{new.description}}</p>
+    <a href="{{new.url}}">Read More ...</a>
+  </ion-card-content>
+  <ion-row>
+    <ion-col>
+      <button ion-button icon-start clear small (click)="shareViaWhatsApp(new.title,new.urlToImage,new.url)">
+        <ion-icon name="logo-whatsapp"></ion-icon>
+        <div>Whatsapp</div>
+      </button>
+    </ion-col>
+    <ion-col>
+      <button ion-button icon-start clear small (click)="shareVia(new.title,new.urlToImage,new.url)">
+        <ion-icon name="paper-plane"></ion-icon>
+        <div>Telegram</div>
+      </button>
+    </ion-col>
+    <ion-col>
+      <button ion-button icon-start clear small (click)="shareViaTwitter(new.title,new.urlToImage,new.url)">
+        <ion-icon name="logo-twitter"></ion-icon>
+        <div>Twitter</div>
+      </button>
+    </ion-col>
+    <ion-col>
+      <button ion-button icon-start clear small (click)="shareViaFacebook(new.title,new.urlToImage,new.url)">
+        <ion-icon name="logo-facebook"></ion-icon>
+        <div>Facebook</div>
+      </button>
+    </ion-col>
+  </ion-row>
+  </ion-card>
+
+</ion-content>
+
+<style>
+.social-cards ion-col {
+  padding: 0;
+}
+</style>

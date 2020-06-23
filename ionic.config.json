@@ -1,0 +1,9 @@
+{
+  "name": "Islam-Pro-(MY)",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular",
+  "id": "io.islam.pro",
+  "app_id": ""
+}

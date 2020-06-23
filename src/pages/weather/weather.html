@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Weather</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+  <ion-list>
+    <button ion-item *ngFor="let weatherItem of weatherSearch">
+      <h3>{{weatherItem.name}}</h3>
+		    <p class="info">{{weatherItem.weather[0].description}}</p>
+      <div class="item-note" item-right>
+        <span class="temperature">{{weatherItem.main.temp}}°C</span>
+      </div>
+    </button>
+    <button ion-item *ngFor="let weatherItem of weatherItems">
+      <h3>{{weatherItem.name}}</h3>
+		    <p class="info">{{weatherItem.weather[0].description}}</p>
+      <div class="item-note" item-right>
+        <span class="temperature">{{weatherItem.main.temp}}°C</span>
+      </div>
+    </button>
+  </ion-list>
+</ion-content>

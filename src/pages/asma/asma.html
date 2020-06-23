@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Asma Ul Husna</ion-title>
+  </ion-navbar>
+  <!-- <ion-toolbar color="primary">
+    <ion-searchbar (input)="getItems($event)"></ion-searchbar>
+  </ion-toolbar> -->
+</ion-header>
+
+<ion-card>
+  <ion-card-header>
+    Names of Allah
+  </ion-card-header>
+
+  <ion-list *ngFor="let asma of asma[0]">
+
+    <ion-item>
+      <button ></button><ion-icon name="volume-up" item-start></ion-icon>
+      <h3>{{asma.name}}</h3>
+      <h4>{{asma.transliteration}}</h4>
+      <h4>{{asma.en.meaning}}</h4>
+    </ion-item>
+
+  </ion-list>
+</ion-card>
+<!-- <ion-content class="grid-basic-page">
+
+  <ion-grid>
+  <ion-row dir="rtl">
+    <ion-col *ngFor="let asma of asma[0]" col-6 col-sm-9 col-md-6 col-lg-4 col-xl-3 >
+      <h3>{{asma.name}}</h3>
+      <h4>{{asma.transliteration}}</h4>
+      <h4>{{asma.en.meaning}}</h4>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+</ion-content> -->
+
+<style>
+.social-cards ion-col {
+  padding: 0;
+}
+</style>
