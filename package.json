@@ -57,7 +57,7 @@
     "formidable": "^1.2.1",
     "ionic-angular": "3.9.2",
     "ionicons": "3.0.0",
-    "minimist": "^1.2.5",
+    "minimist": "^1.2.6",
     "rxjs": "5.5.10",
     "sw-toolbox": "3.6.0",
     "xml2js": "^0.4.23",
